@@ -53,9 +53,10 @@ type ControllerComments struct {
 	Params           []map[string]string
 }
 
-// Controller defines some basic http request handler operations, such as
+// baseController defines some basic http request handler operations, such as
 // http context, template and view, session and xsrf.
-type Controller struct {
+// The actual Controller struct is defined in the controller_{nae,ae}.go files.
+type baseController struct {
 	Ctx            *context.Context
 	Data           map[interface{}]interface{}
 	controllerName string
@@ -106,6 +107,8 @@ func (c *Controller) Init(ctx *context.Context, controllerName, actionName strin
 	c.EnableXSRF = true
 	c.Data = ctx.Input.Data
 	c.methodMapping = make(map[string]func())
+
+	c.initForAE(ctx)
 }
 
 // Prepare runs after Init before request function execution.

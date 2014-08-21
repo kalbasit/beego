@@ -26,7 +26,6 @@ import (
 	"github.com/astaxie/beego/config"
 	"github.com/astaxie/beego/logs"
 	"github.com/astaxie/beego/session"
-	"github.com/astaxie/beego/utils"
 )
 
 var (
@@ -87,20 +86,7 @@ func init() {
 	// create beego application
 	BeeApp = NewApp()
 
-	workPath, _ = os.Getwd()
-	workPath, _ = filepath.Abs(workPath)
-	// initialize default configurations
-	AppPath, _ = filepath.Abs(filepath.Dir(os.Args[0]))
-
-	AppConfigPath = filepath.Join(AppPath, "conf", "app.conf")
-
-	if workPath != AppPath {
-		if utils.FileExists(AppConfigPath) {
-			os.Chdir(AppPath)
-		} else {
-			AppConfigPath = filepath.Join(workPath, "conf", "app.conf")
-		}
-	}
+	registerAppPathAndAppConfigPath()
 
 	AppConfigProvider = "ini"
 
@@ -127,7 +113,7 @@ func init() {
 
 	RecoverPanic = true
 
-	ViewsPath = "views"
+	ViewsPath = filepath.Join(AppPath, "views")
 
 	SessionOn = false
 	SessionProvider = "memory"
