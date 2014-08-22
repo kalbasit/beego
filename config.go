@@ -23,9 +23,9 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/astaxie/beego/config"
-	"github.com/astaxie/beego/logs"
-	"github.com/astaxie/beego/session"
+	"github.com/eMxyzptlk/beego/config"
+	"github.com/eMxyzptlk/beego/logs"
+	"github.com/eMxyzptlk/beego/session"
 )
 
 var (

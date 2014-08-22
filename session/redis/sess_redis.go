@@ -20,8 +20,8 @@
 //
 // Usage:
 // import(
-//   _ "github.com/astaxie/beego/session/redis"
-//   "github.com/astaxie/beego/session"
+//   _ "github.com/eMxyzptlk/beego/session/redis"
+//   "github.com/eMxyzptlk/beego/session"
 // )
 //
 //	func init() {
@@ -38,7 +38,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/astaxie/beego/session"
+	"github.com/eMxyzptlk/beego/session"
 
 	"github.com/garyburd/redigo/redis"
 )

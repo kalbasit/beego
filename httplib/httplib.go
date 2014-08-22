@@ -14,7 +14,7 @@
 
 // Usage:
 //
-// import "github.com/astaxie/beego/context"
+// import "github.com/eMxyzptlk/beego/context"
 //
 //	b := httplib.Post("http://beego.me/")
 //	b.Param("username","astaxie")
