@@ -6,8 +6,20 @@ import (
 	"os"
 	"path/filepath"
 
+	"github.com/eMxyzptlk/beego/context"
 	"github.com/eMxyzptlk/beego/utils"
 )
+
+type Controller struct {
+	baseController
+}
+
+func (c *Controller) initForAE(ctx *context.Context) {}
+
+// Run beego application.
+func (app *App) Run() {
+	app.run()
+}
 
 func registerAppPathAndAppConfigPath() {
 	workPath, _ = os.Getwd()
@@ -24,5 +36,4 @@ func registerAppPathAndAppConfigPath() {
 			AppConfigPath = filepath.Join(workPath, "conf", "app.conf")
 		}
 	}
-
 }
